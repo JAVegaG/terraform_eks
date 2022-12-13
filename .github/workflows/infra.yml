@@ -60,7 +60,7 @@ jobs:
             else
               terraformWorkspace=dev
             fi
-            echo "TF_WORKSPACE=terraformWorkspace" >> $GITHUB_ENV
+            echo "TF_WORKSPACE=$terraformWorkspace" >> $GITHUB_ENV
           fi
 
       - name: Terraform Init
