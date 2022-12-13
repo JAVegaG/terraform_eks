@@ -27,16 +27,31 @@ resource "aws_eks_cluster" "eks_cluster" {
 resource "aws_eks_addon" "eks_vpc_cni" {
   cluster_name = aws_eks_cluster.eks_cluster.name
   addon_name   = "vpc-cni"
+
+  depends_on = [
+    aws_eks_node_group.node_group
+  ]
+
 }
 
 resource "aws_eks_addon" "eks_vpc_core_dns" {
   cluster_name = aws_eks_cluster.eks_cluster.name
   addon_name   = "coredns"
+
+  depends_on = [
+    aws_eks_node_group.node_group
+  ]
+
 }
 
 resource "aws_eks_addon" "eks_vpc_kube_proxy" {
   cluster_name = aws_eks_cluster.eks_cluster.name
   addon_name   = "kube-proxy"
+
+  depends_on = [
+    aws_eks_node_group.node_group
+  ]
+
 }
 
 # resource "aws_eks_fargate_profile" "fargate_profile" {
