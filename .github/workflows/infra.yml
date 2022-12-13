@@ -55,7 +55,7 @@ jobs:
           else
             if [[ $GITHUB_REF_NAME == "main" ]]; then
               terraformWorkspace=prod
-            elif [[ $GITHUB_REF_NAME =~ "^relase_.*|^hot_fix_*" ]]; then
+            elif [[ $GITHUB_REF_NAME =~ "^release_.*|^hot_fix_*" ]]; then
               terraformWorkspace=stg
             else
               terraformWorkspace=dev
